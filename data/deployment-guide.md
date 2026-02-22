@@ -58,9 +58,17 @@ Render will download your Java code from GitHub, package it using Maven, and hos
    * `DB_URL` = `jdbc:mysql://[YOUR_TIDB_HOST_URL]?useSSL=true&allowPublicKeyRetrieval=true`
    * `DB_USERNAME` = `[YOUR_TIDB_USERNAME]`
    * `DB_PASSWORD` = `[YOUR_TIDB_PASSWORD]`
-   * `JWT_SECRET` = `(Type a long random string of letters and numbers here, at least 32 characters)`
+   * `JWT_SECRET` = `[YOUR_CUSTOM_LONG_SECRET]`
    * `JWT_EXPIRATION` = `86400000` *(This equals 24 hours in milliseconds)*
-   * `ALLOWED_ORIGINS` = `[Leave Blank For Now, we will add it later]`
+   * `ALLOWED_ORIGINS` = `[Leave Blank For Now]`
+
+**Example of perfectly filled out Environment Variables for Render:**
+If you look at your TiDB Account and see `gateway01.ap-southeast-1.prod.aws.tidbcloud.com` on port `4000` for username `3r5NVC8PE989U2Q.root` with password `Rzn64AhUOsClQaMR`, you would enter exactly this:
+- `DB_URL`: `jdbc:mysql://gateway01.ap-southeast-1.prod.aws.tidbcloud.com:4000/test?useSSL=true&allowPublicKeyRetrieval=true`
+- `DB_USERNAME`: `3r5NVC8PE989U2Q.root`
+- `DB_PASSWORD`: `Rzn64AhUOsClQaMR`
+- `JWT_SECRET`: `q2w3e4r5t6y7u8i9o0p1a2s3d4f5g6h7j8k9l0z1x2c3v4b5n6m7` *(This must just be a random long string to protect your auth tokens)*
+- `JWT_EXPIRATION`: `86400000`
 
 6. Click **Create Web Service**. 
 
