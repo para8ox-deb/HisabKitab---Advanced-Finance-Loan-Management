@@ -48,10 +48,9 @@ Render will download your Java code from GitHub, package it using Maven, and hos
 3. Select your `HisabKitab---Advanced-Finance-Loan-Management` GitHub repository.
 4. **Fill out the Build Settings exactly like this:**
    * **Name:** `hisab-kitab-api`
-   * **Root Directory:** `backend` *(<- This is incredibly important)*
-   * **Environment:** `Java`
-   * **Build Command:** `./mvnw clean package -DskipTests` *(This downloads packages and builds the JAR file)*
-   * **Start Command:** `java -jar target/HisabKitab-0.0.1-SNAPSHOT.jar` *(This actually boots Spring)*
+   * **Language:** `Docker` *(If it says 'Node', click it and change it to Docker)*
+   * **Root Directory:** `backend` *(<- This tells Render to look for our new Docker container instructions)*
+   * **Branch:** `main`
    * **Instance Type:** Free
 
 5. **Set Environment Variables:**
