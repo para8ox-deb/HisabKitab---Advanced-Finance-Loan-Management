@@ -157,17 +157,17 @@ const LoanDetail = () => {
                 <HiOutlineArrowLeft /> Back to Loans
             </button>
 
-            <div className="page-header">
-                <div>
-                    <h1 className="page-title">{loan.borrowerName}'s Loan</h1>
+            <div className="page-header" style={{ alignItems: 'flex-start' }}>
+                <div style={{ flex: 1, minWidth: '0' }}>
+                    <h1 className="page-title" style={{ whiteSpace: 'normal', wordBreak: 'break-word' }}>{loan.borrowerName}'s Loan</h1>
                     <p className="page-subtitle">Loan ID: #{loan.id} · Issued on {loan.startDate}</p>
                 </div>
-                <div style={{ display: 'flex', gap: '12px' }}>
-                    <button className="btn btn-secondary" onClick={() => window.print()}>Print Summary</button>
+                <div className="loan-actions-group">
+                    <button className="btn btn-secondary" onClick={() => window.print()} title="Print Summary">Print</button>
                     <button
                         className="btn btn-secondary"
                         onClick={handleDeleteLoan}
-                        style={{ color: '#dc2626', borderColor: '#fecaca' }}
+                        style={{ color: '#dc2626', borderColor: '#fecaca', minWidth: '40px', padding: '10px' }}
                     >
                         <HiOutlineTrash />
                     </button>
@@ -177,7 +177,7 @@ const LoanDetail = () => {
                             onClick={() => setIsSettleOpen(true)}
                             style={{ color: '#10b981', borderColor: '#a7f3d0' }}
                         >
-                            <HiOutlineCheckCircle /> Settle Now
+                            <HiOutlineCheckCircle /> Settle
                         </button>
                     )}
                     <button
@@ -185,15 +185,16 @@ const LoanDetail = () => {
                         onClick={() => setIsPrepayOpen(true)}
                         disabled={loan.status === 'COMPLETED'}
                     >
-                        <HiOutlineLightningBolt /> Partial Prepayment
+                        <HiOutlineLightningBolt /> Prepay
                     </button>
                     {loan.status === 'ACTIVE' && (
                         <button
                             className="btn btn-secondary"
                             onClick={() => navigate(`/loans/${loan.id}/edit`)}
                             title="Edit Loan Terms"
+                            style={{ minWidth: '40px', padding: '10px' }}
                         >
-                            <HiOutlinePencil /> Edit
+                            <HiOutlinePencil />
                         </button>
                     )}
                 </div>
@@ -252,8 +253,8 @@ const LoanDetail = () => {
                     <div className="card-header" style={{ borderBottom: '1px solid var(--border)', paddingBottom: '16px', marginBottom: '16px' }}>
                         <h2 className="card-title" style={{ fontSize: '1.25rem' }}>Monthly Schedule Tracker</h2>
                     </div>
-                    <div style={{ overflowX: 'auto' }}>
-                        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
+                    <div className="table-container">
+                        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '800px' }}>
                             <thead>
                                 <tr style={{ borderBottom: '1px solid var(--border)' }}>
                                     <th style={{ padding: '12px 16px', color: 'var(--text-secondary)', fontWeight: 600, fontSize: '0.875rem' }}>Month #</th>
@@ -442,6 +443,17 @@ const LoanDetail = () => {
         .row-paid {
           background-color: var(--success-50) !important;
           opacity: 0.8;
+        }
+        .loan-actions-group {
+          display: flex;
+          gap: 8px;
+          flex-wrap: wrap;
+          justify-content: flex-end;
+        }
+        @media (max-width: 630px) {
+          .loan-actions-group {
+            justify-content: flex-start;
+          }
         }
         @media print {
           .btn, .sidebar, .mobile-toggle, .modal-overlay { display: none !important; }

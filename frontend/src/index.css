@@ -328,6 +328,7 @@ textarea {
   border: 1px solid var(--border-light);
   width: 100%;
   -webkit-overflow-scrolling: touch;
+  background: white;
 }
 
 table {
@@ -497,6 +498,24 @@ tr:hover {
 
 @media (max-width: 600px) {
   .loan-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .page-title {
+    font-size: 1.25rem;
+  }
+
+  .stats-grid {
     grid-template-columns: 1fr;
   }
 }
