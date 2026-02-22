@@ -21,20 +21,22 @@ You have already safely run `git push origin main` and your code is securely on 
 
 ---
 
-## Stage 2: Database Hosting (Aiven.io)
-Your laptop's MySQL is off when you sleep. You need a database that never sleeps.
+## Stage 2: Database Hosting (TiDB Serverless)
+Your laptop's MySQL is off when you sleep. You need a database that never sleeps. We will use TiDB, which behaves exactly like MySQL but offers a forever-free Serverless cluster.
 
-1. Go to **[Aiven.io](https://aiven.io/)** and create a free account.
-2. Click **Create Service**.
-3. Select **MySQL** as the service type.
-4. Select the **Free Plan** (Note: Depending on availability, you can also use **TiDB Serverless** or **PlanetScale** for free MySQL).
-5. Select a region close to your target users (e.g., `aws-ap-south-1` for Mumbai).
-6. Click **Create Service**.
+1. Go to **[TiDB Cloud](https://tidbcloud.com/)** and create a free account.
+2. Click **Create Cluster** and choose the **Serverless** tier.
+3. Name your cluster (e.g., `hisabkitab-db`) and select a region close to your users (like Mumbai or Singapore).
+4. Click **Create**.
+5. Once created, click on your cluster and find the **Connect** button in the top right.
+6. In the connection dialog:
+   * **Connection Type:** Choose `Spring Boot` or `JDBC`.
+   * **Password:** Generate a new password and immediately copy it.
 
-**CRITICAL:** Wait 2 minutes for it to build. Once the status shows "Running", locate your **Connection Details**. You specifically need:
-* **Host URL:** (e.g., `mysql-123.aivencloud.com:12345/defaultdb`)
-* **Username:** (e.g., `avnadmin`)
-* **Password:** (Copy this securely)
+**CRITICAL:** You need to extract three specific things from the JDBC connection string they provide:
+* **Host URL:** It will look something like `gateway01.ap-south-1.prod.aws.tidbcloud.com:4000/hisabkitab`
+* **Username:** It will have a prefix (e.g., `2aV8bxyz.root`)
+* **Password:** The one you just generated.
 
 ---
 
@@ -54,9 +56,9 @@ Render will download your Java code from GitHub, package it using Maven, and hos
 
 5. **Set Environment Variables:**
    Scroll down before clicking Create. You must manually feed the locked variables to your app. Click "Add Environment Variable":
-   * `DB_URL` = `jdbc:mysql://[YOUR_AIVEN_HOST_URL]?useSSL=true`
-   * `DB_USERNAME` = `[YOUR_AIVEN_USERNAME]`
-   * `DB_PASSWORD` = `[YOUR_AIVEN_PASSWORD]`
+   * `DB_URL` = `jdbc:mysql://[YOUR_TIDB_HOST_URL]?useSSL=true&allowPublicKeyRetrieval=true`
+   * `DB_USERNAME` = `[YOUR_TIDB_USERNAME]`
+   * `DB_PASSWORD` = `[YOUR_TIDB_PASSWORD]`
    * `JWT_SECRET` = `(Type a long random string of letters and numbers here, at least 32 characters)`
    * `JWT_EXPIRATION` = `86400000` *(This equals 24 hours in milliseconds)*
    * `ALLOWED_ORIGINS` = `[Leave Blank For Now, we will add it later]`
