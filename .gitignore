@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+backend/target/
+
+# Build outputs
+frontend/dist/
+backend/build/
+
+# Environment Variables & Secrets
+.env
+.env.local
+.env.*.local
+application-dev.properties
+backend/src/main/resources/application-local.properties
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Logs
+logs/
+*.log
+backend/boot_logs.txt
+backend/errors.txt
+
+# Gemini Cache / State
+.gemini/
+brain/
+data/

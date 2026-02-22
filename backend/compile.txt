@@ -1,0 +1,30 @@
+﻿[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< com.hisabkitab:backend >-----------------------
+[INFO] Building HisabKitab 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.4.1:clean (default-clean) @ backend ---
+[INFO] Deleting E:\MERN project\javaProj1\HisabKitab\backend\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ backend ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ backend ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 49 source files with javac [debug parameters release 21] to target\classes
+[WARNING] /E:/MERN project/javaProj1/HisabKitab/backend/src/main/java/com/hisabkitab/entity/Borrower.java:[50,28] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /E:/MERN project/javaProj1/HisabKitab/backend/src/main/java/com/hisabkitab/entity/User.java:[56,21] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /E:/MERN project/javaProj1/HisabKitab/backend/src/main/java/com/hisabkitab/entity/Loan.java:[89,26] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /E:/MERN project/javaProj1/HisabKitab/backend/src/main/java/com/hisabkitab/entity/Loan.java:[130,24] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /E:/MERN project/javaProj1/HisabKitab/backend/src/main/java/com/hisabkitab/entity/Loan.java:[140,24] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[INFO] /E:/MERN project/javaProj1/HisabKitab/backend/src/main/java/com/hisabkitab/config/SecurityConfig.java: E:\MERN project\javaProj1\HisabKitab\backend\src\main\java\com\hisabkitab\config\SecurityConfig.java uses or overrides a deprecated API.
+[INFO] /E:/MERN project/javaProj1/HisabKitab/backend/src/main/java/com/hisabkitab/config/SecurityConfig.java: Recompile with -Xlint:deprecation for details.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  6.181 s
+[INFO] Finished at: 2026-02-21T22:20:49+05:30
+[INFO] ------------------------------------------------------------------------
